@@ -13,13 +13,16 @@
         <form method="post">
             First: <input type="text" name="firstN" value="${numberOne}">
             Second: <input type="text" name="secondN" value="${numberTwo}">
-            <input type="submit" value="+" > <input type="button" value="-" > <input type="button" value="*"><input type="button" value="%">    
+            <input type="button" value="+">
+            <input type="button" value="-"> 
+            <input type="button" value="*"> 
+            <input type="button" value="%">    
         </form>
         
         <div>
             <p>Result: </p> ${message}
         </div>
         
-         <a href="/WEB-INF/agecalculator.jsp" >Age Calculator </a>
+         <a href="age" >Age Calculator </a>
     </body>
 </html>
