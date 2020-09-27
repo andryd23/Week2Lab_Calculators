@@ -31,60 +31,37 @@ public class AgeCalculatorServlet extends HttpServlet {
         String userAge = request.getParameter("user_age");
         int nextAge;
         
-        boolean number = true;
+       boolean number = true;
         
        while(number = true) {
-           if(userAge.matches("^[a-zA-Z]+$")){
-               number = false;
-           }
-           break;
-       }
-        
-         
-         if(userAge == null || userAge.equals("")) {
-            request.setAttribute("message", "You must enter your current age");
-            getServletContext().getRequestDispatcher("/WEB-INF/agecalculator.jsp").forward(request, response);
-            return;
-            
-        }
-         
-        if(number = false){
+           if(!userAge.matches("[0-9]*$")){
             request.setAttribute("message", "You must enter a number");
             getServletContext().getRequestDispatcher("/WEB-INF/agecalculator.jsp").forward(request, response);
+            number = false;
             return;
-         }
+           }
+           else if(userAge == null || userAge.equals("")) {
+               request.setAttribute("message", "You must enter your current age");
+               getServletContext().getRequestDispatcher("/WEB-INF/agecalculator.jsp").forward(request, response);
+               number = false;
+           }
+           else {  
+                nextAge = Integer.parseInt(userAge) ;
+                nextAge = nextAge + 1;
+                request.setAttribute("message", "Your age next birthday will be " + nextAge);
+                getServletContext().getRequestDispatcher("/WEB-INF/agecalculator.jsp").forward(request, response);
+                return;
+        
+          
+       }
          
-        else {  
-        nextAge = Integer.parseInt(userAge) ;
-        nextAge = nextAge + 1;
-        request.setAttribute("message", "Your age next birthday will be " + nextAge);
-        getServletContext().getRequestDispatcher("/WEB-INF/agecalculator.jsp").forward(request, response);
-        return;
-        }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
- 
-        
-   
+
+        break;
+       }
+       
     }
     
-         
-    
-      
-      
-      
-      
-      
-      
-    }
+}
     
    
     
