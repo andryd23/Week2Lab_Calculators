@@ -13,14 +13,19 @@
         <form method="post">
             First: <input type="text" name="firstN" value="${numberOne}">
             Second: <input type="text" name="secondN" value="${numberTwo}">
-            <input type="button" value="+">
-            <input type="button" value="-"> 
-            <input type="button" value="*"> 
-            <input type="button" value="%">    
+            
+            <div id="calculation">
+            <input type="submit" value="+" name="add" >
+            <input type="submit" value="-" name="sub" > 
+            <input type="submit" value="*" name="multi">          
+            <input type="submit" value="%" name="div" >   
+            </div>
+            
         </form>
+            <br>
         
         <div>
-            <p>Result: </p> ${message}
+           ${result}
         </div>
         
          <a href="age" >Age Calculator </a>
