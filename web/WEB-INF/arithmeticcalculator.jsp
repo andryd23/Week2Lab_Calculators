@@ -14,11 +14,11 @@
             First: <input type="text" name="firstN" value="${numberOne}">
             Second: <input type="text" name="secondN" value="${numberTwo}">
             
-            <div id="calculation">
-            <input type="submit" value="+" name="add" >
-            <input type="submit" value="-" name="sub" > 
-            <input type="submit" value="*" name="multi">          
-            <input type="submit" value="%" name="div" >   
+            <div>
+            <input type="submit" value="+" name="calculation" >
+            <input type="submit" value="-" name="calculation" > 
+            <input type="submit" value="*" name="calculation">          
+            <input type="submit" value="%" name="calculation" >   
             </div>
             
         </form>

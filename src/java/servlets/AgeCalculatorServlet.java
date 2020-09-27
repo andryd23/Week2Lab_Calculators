@@ -30,6 +30,7 @@ public class AgeCalculatorServlet extends HttpServlet {
         String userAge;
         userAge = request.getParameter("user_age");
         request.setAttribute("ageUser", userAge);
+        boolean isNumber = false;
         
          if(userAge == null || userAge.equals("")) {
             request.setAttribute("message", "You must give your current age.");
@@ -37,27 +38,42 @@ public class AgeCalculatorServlet extends HttpServlet {
             return;
             
             }
-         
-            else if(userAge.matches("^[a-zA-Z]*$")) {
-            request.setAttribute("message", "Your must enter a number");
-            getServletContext().getRequestDispatcher("/WEB-INF/agecalculator.jsp").forward(request, response);
-            return;        
-            }
-            
-            else if(userAge.matches("^[0-9]*$")) {
+         else if(userAge != null || !userAge.equals("")) {
+           
             int nextAge = Integer.parseInt(userAge) ;
             nextAge = nextAge + 1;
-            request.setAttribute("message", "Your age next birthday will be " + nextAge);
-            getServletContext().getRequestDispatcher("/WEB-INF/agecalculator.jsp").forward(request, response);
-            return;
+        
+               for(;;) {
+                     if(userAge.matches("^[0-9]*$")) {
+                    request.setAttribute("message", "Your age next birthday will be " + nextAge);
+                    getServletContext().getRequestDispatcher("/WEB-INF/agecalculator.jsp").forward(request, response);
+                    return;
+                     
+                     }
+
+                      request.setAttribute("message", "Your must enter a number");
+                      getServletContext().getRequestDispatcher("/WEB-INF/agecalculator.jsp").forward(request, response);
+                      return;
+
+
+                     }
+     
+          
+            
             }
          
-          
-        } 
+    }
+    
+
+}
+           
+         
+         
+       
          
   
             
-   }
+   
     
     
     
